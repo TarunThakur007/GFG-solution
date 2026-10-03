@@ -44,31 +44,31 @@ Output: 0
 ## Solution
 
 **Language:** Java  
-**Runtime:** 6 ms (beats 13.09%)  
-**Memory:** 46.3 MB (beats 68.18%)  
-**Submitted:** 2026-10-03T05:33:38.889Z  
+**Runtime:** 4 ms (beats 81.05%)  
+**Memory:** 46.7 MB (beats 13.01%)  
+**Submitted:** 2026-10-03T05:34:22.217Z  
 
 ```java
 class Solution {
     public int longestValidParentheses(String s) {
-        Stack<Integer> st = new Stack<>();
-        st.push(-1);
-        int ans =0;
-        for(int i=0;i<s.length();i++){
-            if(s.charAt(i)=='('){
-                st.push(i);
-            }else{
-                st.pop();
-                if(st.isEmpty()){
-                    st.push(i);
-                }else{
-                    ans = Math.max(ans,i-st.peek());
+        Deque<Integer> stack = new ArrayDeque<>();
+        stack.push(-1);
+        int ans = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == '(') {
+                stack.push(i);
+            } else {
+                stack.pop();
+                if (stack.isEmpty()) {
+                    stack.push(i); 
+                } else {
+                    ans = Math.max(ans, i - stack.peek());
                 }
             }
         }
         return ans;
     }
-}
+}   
 ```
 
 ---
