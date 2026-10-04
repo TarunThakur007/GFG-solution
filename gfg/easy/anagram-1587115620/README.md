@@ -32,7 +32,7 @@ Explanation: The characters in the two strings are not the same — some are mis
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-03T05:15:00.267Z  
+**Submitted:** 2026-10-04T05:50:37.663Z  
 
 ```java
 class Solution {
@@ -45,6 +45,7 @@ class Solution {
 		Arrays.sort(s1Array);
 		Arrays.sort(s2Array);
 		return Arrays.equals(s1Array, s2Array);
+		
 	}
 }
 
