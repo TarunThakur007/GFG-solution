@@ -8,5 +8,6 @@ class Solution {
 		Arrays.sort(s1Array);
 		Arrays.sort(s2Array);
 		return Arrays.equals(s1Array, s2Array);
+		
 	}
 }
