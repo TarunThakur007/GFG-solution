@@ -44,8 +44,8 @@ Output: []
 
 **Language:** Java  
 **Runtime:** 1 ms (beats 96.42%)  
-**Memory:** 47.3 MB (beats 40.25%)  
-**Submitted:** 2026-10-09T07:35:02.344Z  
+**Memory:** 47.1 MB (beats 89.94%)  
+**Submitted:** 2026-10-09T07:36:30.053Z  
 
 ```java
 /**
@@ -61,8 +61,18 @@ Output: []
 class Solution {
     public ListNode removeElements(ListNode head, int val) {
         if(head == null) return null;
-        head.next = removeElements(head.next,val);
-        return head.val == val ? head.next : head;
+        // head.next = removeElements(head.next,val);
+        // return head.val == val ? head.next : head;
+        ListNode dummy = new ListNode(0, head);
+        ListNode current = dummy;
+        while (current.next != null) {
+            if (current.next.val == val) {
+                current.next = current.next.next;
+            } else {
+                current = current.next;
+            }
+        }
+        return dummy.next;
     }
 }
 ```
