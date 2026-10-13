@@ -35,9 +35,9 @@ Output: [1,2,3]
 ## Solution
 
 **Language:** Java  
-**Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 45.3 MB (beats 83.75%)  
-**Submitted:** 2026-10-13T13:51:16.573Z  
+**Runtime:** 0 ms  
+**Memory:** 42 MB  
+**Submitted:** 2026-10-13T13:51:53.909Z  
 
 ```java
 /**
@@ -56,7 +56,7 @@ class Solution {
         // if (head == null || head.next == null) {
         // return head;
         // }
-        while(temp!=null && temp.next!=null){
+        while(temp.next!=null){
             if(temp.val==temp.next.val){
                 temp.next = temp.next.next;
             }else{
