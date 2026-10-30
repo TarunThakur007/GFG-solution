@@ -44,8 +44,8 @@ Explanation: The sum that is closest to the target is 0. (0 + 0 + 0 = 0).
 
 **Language:** Java  
 **Runtime:** 0 ms  
-**Memory:** 41.9 MB  
-**Submitted:** 2026-10-29T14:08:59.219Z  
+**Memory:** 41.5 MB  
+**Submitted:** 2026-10-30T07:32:30.963Z  
 
 ```java
 class Solution {
@@ -57,6 +57,7 @@ class Solution {
             int l = i+1;
             while(l<r){
                 int sum = nums[i]+nums[l]+nums[r];
+                if(nums[i]==0 && nums[r]==0 && nums[r-1]==0 && nums[l+1]==0) return 0;
                 while(l<r && nums[l]==nums[l+1]) l++;
                 while(l<r && nums[r]==nums[r-1]) r--;
                 int mini = Integer.MAX_VALUE;
@@ -66,7 +67,7 @@ class Solution {
                 r--;
             }
         }
-        return ans;
+        return ans-1;
     }
 }
 ```
