@@ -43,31 +43,50 @@ Explanation: 7/-3 = -2.33333.. which is truncated to -2.
 
 **Language:** Java  
 **Runtime:** 2 ms (beats 19.59%)  
-**Memory:** 42.2 MB (beats 88.12%)  
-**Submitted:** 2026-11-02T17:12:05.866Z  
+**Memory:** 42.1 MB (beats 88.12%)  
+**Submitted:** 2026-11-02T17:12:45.565Z  
 
 ```java
 class Solution {
     public int divide(int dividend, int divisor) {
-        if (dividend == Integer.MIN_VALUE && divisor == -1)
+        // if (dividend == Integer.MIN_VALUE && divisor == -1)
+        //     return Integer.MAX_VALUE;
+        // boolean neg = (dividend < 0) ^ (divisor < 0);
+        // long a = Math.abs((long) dividend);
+        // long b = Math.abs((long) divisor);
+        // long result = 0;
+        // while (a >= b) {
+        //     long temp = b, count = 1;
+        //     while (a >= (temp << 1)) {
+        //         temp <<= 1;
+        //         count <<= 1;
+        //     }
+        //     a -= temp;
+        //     result += count;
+        // }
+        // return neg ? (int)(-result) : (int)result;
+        if (dividend == Integer.MIN_VALUE && divisor == -1) {
             return Integer.MAX_VALUE;
-
-        boolean neg = (dividend < 0) ^ (divisor < 0);
-        long a = Math.abs((long) dividend);
-        long b = Math.abs((long) divisor);
-        long result = 0;
-
-        while (a >= b) {
-            long temp = b, count = 1;
-            while (a >= (temp << 1)) {
-                temp <<= 1;
-                count <<= 1;
-            }
-            a -= temp;
-            result += count;
         }
 
-        return neg ? (int)(-result) : (int)result;
+        boolean negative = (dividend < 0) ^ (divisor < 0);
+
+        long a = Math.abs((long) dividend);
+        long b = Math.abs((long) divisor);
+        int result = 0;
+
+        while (a >= b) {
+            long temp = b;
+            long multiple = 1;
+            while (a >= (temp << 1)) {
+                temp <<= 1;
+                multiple <<= 1;
+            }
+            a -= temp;
+            result += multiple;
+        }
+
+        return negative ? -result : result;
     }
 }
 ```
