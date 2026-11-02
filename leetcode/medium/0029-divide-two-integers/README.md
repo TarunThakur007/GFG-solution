@@ -42,25 +42,32 @@ Explanation: 7/-3 = -2.33333.. which is truncated to -2.
 ## Solution
 
 **Language:** Java  
-**Runtime:** 0 ms  
-**Memory:** 41.5 MB  
-**Submitted:** 2026-11-02T17:05:09.335Z  
+**Runtime:** 2 ms (beats 19.59%)  
+**Memory:** 42.2 MB (beats 88.12%)  
+**Submitted:** 2026-11-02T17:12:05.866Z  
 
 ```java
 class Solution {
     public int divide(int dividend, int divisor) {
-        int count = 0;
-        while(dividend>=divisor && dividend>0){
-            if(divisor<0){
-                dividend+=divisor;
-                count++;
-            }else{ 
-                dividend-=divisor;
-                count++;
+        if (dividend == Integer.MIN_VALUE && divisor == -1)
+            return Integer.MAX_VALUE;
+
+        boolean neg = (dividend < 0) ^ (divisor < 0);
+        long a = Math.abs((long) dividend);
+        long b = Math.abs((long) divisor);
+        long result = 0;
+
+        while (a >= b) {
+            long temp = b, count = 1;
+            while (a >= (temp << 1)) {
+                temp <<= 1;
+                count <<= 1;
             }
+            a -= temp;
+            result += count;
         }
-        if(divisor<0) count=-(count-1);
-        return count;
+
+        return neg ? (int)(-result) : (int)result;
     }
 }
 ```
