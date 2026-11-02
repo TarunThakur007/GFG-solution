@@ -1,16 +1,23 @@
 class Solution {
     public int divide(int dividend, int divisor) {
-        int count = 0;
-        while(dividend>=divisor && dividend>0){
-            if(divisor<0){
-                dividend+=divisor;
-                count++;
-            }else{ 
-                dividend-=divisor;
-                count++;
+        if (dividend == Integer.MIN_VALUE && divisor == -1)
+            return Integer.MAX_VALUE;
+
+        boolean neg = (dividend < 0) ^ (divisor < 0);
+        long a = Math.abs((long) dividend);
+        long b = Math.abs((long) divisor);
+        long result = 0;
+
+        while (a >= b) {
+            long temp = b, count = 1;
+            while (a >= (temp << 1)) {
+                temp <<= 1;
+                count <<= 1;
             }
+            a -= temp;
+            result += count;
         }
-        if(divisor<0) count=-(count-1);
-        return count;
+
+        return neg ? (int)(-result) : (int)result;
     }
 }
