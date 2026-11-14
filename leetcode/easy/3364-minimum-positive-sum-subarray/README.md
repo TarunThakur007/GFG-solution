@@ -62,9 +62,9 @@ The subarray `[1, 2]` has a length of 2 and the minimum sum greater than 0. So, 
 ## Solution
 
 **Language:** Java  
-**Runtime:** 0 ms  
-**Memory:** 41.2 MB  
-**Submitted:** 2026-11-14T04:23:31.562Z  
+**Runtime:** 6 ms (beats 37.76%)  
+**Memory:** 45.9 MB (beats 79.80%)  
+**Submitted:** 2026-11-14T04:23:55.805Z  
 
 ```java
 class Solution {
