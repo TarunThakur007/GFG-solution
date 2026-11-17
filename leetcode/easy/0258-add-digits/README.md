@@ -44,33 +44,39 @@ Output: 0
 
 **Language:** Java  
 **Runtime:** 2 ms (beats 29.62%)  
-**Memory:** 42 MB (beats 84.15%)  
-**Submitted:** 2026-11-17T07:03:16.652Z  
+**Memory:** 42.1 MB (beats 84.15%)  
+**Submitted:** 2026-11-17T07:05:41.324Z  
 
 ```java
 class Solution {
-    public int count(int num){
-        int ans=0;
-        int a = 0;
-        while(num>0){
-            a = num%10;
-            num/=10;
-            ans+=a;
-        }
-        return ans;
-    }
+    // public int count(int num){
+    //     int ans=0;
+    //     int a = 0;
+    //     while(num>0){
+    //         a = num%10;
+    //         num/=10;
+    //         ans+=a;
+    //     }
+    //     return ans;
+    // }
     public int addDigits(int num) {
-        if(num<=9) return num;
-        int ans = count(num);
-        int out = 0;
-        while(ans>9){
-            out = count(ans);
-            ans = out;
-        }
-        // if(ans<9){
-        //     return ans;
+        // if(num<=9) return num;
+        // int ans = count(num);
+        // int out = 0;
+        // while(ans>9){
+        //     out = count(ans);
+        //     ans = out;
         // }
-        return ans;
+        // return ans;
+        while(num>9){
+            int sum = 0;
+            while(num>0){
+                sum+= num %10;
+                num/=10;
+            }
+            num = sum;
+        }
+        return num;
     }
 }
 ```
