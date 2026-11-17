@@ -53,22 +53,29 @@ Explanation: There is no x where 3x = (-1).
 
 **Language:** Java  
 **Runtime:** 24 ms (beats 42.03%)  
-**Memory:** 45.6 MB (beats 74.87%)  
-**Submitted:** 2026-11-17T07:16:13.047Z  
+**Memory:** 45.8 MB (beats 58.50%)  
+**Submitted:** 2026-11-17T07:16:42.671Z  
 
 ```java
 class Solution {
     public boolean isPowerOfThree(int n) {
-        if(n<=0) return false;
-        while(n>1){
-            if(n%3==0){
-                n = n/3;
-            }else{
-                return false;
-            }
+        // if(n<=0) return false;
+        // while(n>1){
+        //     if(n%3==0){
+        //         n = n/3;
+        //     }else{
+        //         return false;
+        //     }
+        // }
+        // if(n==1) return true;
+        // else return false;
+        if(n<=0){
+            return false;
         }
-        if(n==1) return true;
-        else return false;
+        while(n%3==0){
+            n=n/3;
+        }
+        return n==1;
     }
 }
 ```
