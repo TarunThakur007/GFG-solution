@@ -38,26 +38,41 @@ Output: "9534330"
 ## Solution
 
 **Language:** Java  
-**Runtime:** 7 ms (beats 51.91%)  
-**Memory:** 44.4 MB (beats 85.85%)  
-**Submitted:** 2026-11-21T11:06:59.791Z  
+**Runtime:** 1 ms  
+**Memory:** 41.9 MB  
+**Submitted:** 2026-11-21T11:07:53.950Z  
 
 ```java
 class Solution {
     public String largestNumber(int[] nums) {
-        String[] asStrs = new String[nums.length];
+        // String[] asStrs = new String[nums.length];
+        // for (int i = 0; i < nums.length; i++) {
+        //     asStrs[i] = String.valueOf(nums[i]);
+        // }
+        // Arrays.sort(asStrs, (a, b) -> (b + a).compareTo(a + b));
+        // if (asStrs[0].equals("0")) {
+        //     return "0";
+        // }
+        // StringBuilder largestNumberStr = new StringBuilder();
+        // for (String numAsStr : asStrs) {
+        //     largestNumberStr.append(numAsStr);
+        // }
+        // return largestNumberStr.toString();
+
+        
+        String[] arr = new String[nums.length];
         for (int i = 0; i < nums.length; i++) {
-            asStrs[i] = String.valueOf(nums[i]);
+            arr[i] = String.valueOf(nums[i]);
         }
-        Arrays.sort(asStrs, (a, b) -> (b + a).compareTo(a + b));
-        if (asStrs[0].equals("0")) {
+        Arrays.sort(arr, (a, b) -> (b + a).compareTo(a + b));
+        if (arr[0].equals("0")) {
             return "0";
         }
-        StringBuilder largestNumberStr = new StringBuilder();
-        for (String numAsStr : asStrs) {
-            largestNumberStr.append(numAsStr);
+        StringBuilder result = new StringBuilder();
+        for (String s : arr) {
+            result.append(s);
         }
-        return largestNumberStr.toString();
+        return result.toString();
     }
 }
 ```
