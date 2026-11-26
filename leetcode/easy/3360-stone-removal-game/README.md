@@ -47,25 +47,20 @@ Java
 ## Solution
 
 **Language:** Java  
-**Runtime:** 0 ms  
-**Memory:** 41.5 MB  
-**Submitted:** 2026-11-26T06:07:00.514Z  
+**Runtime:** 0 ms (beats 100.00%)  
+**Memory:** 41.8 MB (beats 36.32%)  
+**Submitted:** 2026-11-26T06:20:05.375Z  
 
 ```java
 class Solution {
     public boolean canAliceWin(int n) {
-
-        if(n<10) {
-            return false;
+        int x = 10, k = 0;
+        while (n >= x) {
+            n -= x;   
+            --x;      
+            ++k;     
         }
-        else{
-            int a = n-10;
-            if(a>=9){
-                return false;
-            }else{
-                return true;
-            }
-        }
+        return k % 2 == 1;
     }
 }
 ```
